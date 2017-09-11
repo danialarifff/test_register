@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<!-- Website CSS style -->
+		<!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+		<!-- Website Font style -->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<!-- Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+		
+		<!-- Javascript -->
+		<script type= "text/javascript" src = "js/countries.js"></script>
+
+		<title>Sign up page</title>
+	</head>
+	<body>
+		<div class="container">
+			
+			<div class="row main">
+				<div class="main-login main-center">
+				<h5>Registration Form</h5>
+					<form id ="form" class="" method="post" action="main.html">
+						
+						<div class="form-group">
+							<label for="firstname" class="cols-sm-2 control-label">Your First Name</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="firstname" id="firstname"  placeholder="Enter your first name"/>
+								</div>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="lastname" class="cols-sm-2 control-label">Your Last Name</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="lastname" id="lastname"  placeholder="Enter your last name"/>
+								</div>
+							</div>
+						</div>
+						
+						<!--<div class="form-group">
+							<label for="image" class="cols-sm-2 control-label">Your Profile Image</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<input type="file" id="files" name="files[]" multiple />
+									<output id="list"></output>
+								</div>
+							</div>
+						</div> -->
+						
+						<div class="form-group">
+							<label for="userpassword" class="cols-sm-2 control-label">Password</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<input type="password" class="form-control" name="userpassword" id="userpassword"  placeholder="Enter your Password"/>
+								</div>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Password"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="useremail" class="cols-sm-2 control-label">Your Email</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="useremail" id="useremail"  placeholder="Enter your email"/>
+								</div>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="gender" class="cols-sm-2 control-label">Your Gender</label>
+							<div class="cols-sm-10" > 
+								<div class="input-group">
+								<!--<span class="input-group-addon"><i class="fa fa-user" ></i></span>-->
+									<input id="gender" type="radio" name="gender" value="male"> Male 
+					  				<input id="gender" type="radio" name="gender" value="female"> Female
+								</div>
+							</div>
+						</div>
+								
+						<div class="form-group">
+							<label for="dob" class="cols-sm-2 control-label">Your date of birth</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+									<input class="form-control" id="dob" type="date" name="dob">
+								</div>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="nationality" class="cols-sm-2 control-label">Your nationality</label>
+								<div class="col-sm-10"> 
+									<div class="input-group">
+										<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+										<select class="form-control" id="nationality" name ="nationality"></select>
+										<script language="javascript">
+											populateCountries("nationality");
+										</script>
+									</div>
+								</div>
+						</div>
+
+						<div class="form-group">
+							<div class="cols-sm-10 cols-sm-2 control-label">	
+								<br><br>
+									<input id="agreement" type="checkbox" value="agree" name="agreement"> I agree with the terms of condition.		
+							</div>
+						</div>
+
+						<div class="form-group ">
+							<button type="submit" class="btn btn-default btn-sm btn-block" onclick="saveInfo()">Register</button>
+						</div>
+						
+					</form>
+				</div>
+			</div>
+		</div>
+
+		 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+	</body>
+	
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
+	<script type="text/javascript">
+
+		$(document).ready(function() 
+		{
+
+			$('#form').bootstrapValidator({
+			   framework: 'bootstrap',
+				icon: {
+					valid: 'glyphicon glyphicon-ok',
+					invalid: 'glyphicon glyphicon-remove',
+					validating: 'glyphicon glyphicon-refresh'
+				},
+
+			fields: 
+			{
+				firstname: 
+				{
+					validators: 
+					{
+						stringLength: 
+						{
+							min: 2,
+						},
+						notEmpty: 
+						{
+							message: 'You need to fill in your first name'
+						}
+					}
+				},
+				
+				lastname:
+				{  
+					validators: 
+					{
+						stringLength: 
+						{
+							min: 2,
+						},
+						notEmpty: 
+						{
+							message: 'Your last name is required'
+						}
+					}
+				},
+				
+				/*image: 
+				{
+					validators: 
+					{
+						notEmpty: 
+						{
+							message: 'You need to upload your image'
+						}
+					}
+				},*/
+		  
+				useremail: 
+				{
+					validators: 
+					{
+						notEmpty: 
+						{
+							message: 'Your email address is required'
+						},
+						emailAddress: 
+						{
+							message: 'The input is not a valid email address'
+						}
+					}
+				},
+			   
+				userpassword: 
+				{
+				  validators: 
+				  {
+						notEmpty: 
+						{
+							message: 'Your password is required'
+						},
+
+						identical: 
+						{
+							field: 'confirm',
+							message: 'You need to confirm your password below'
+						}
+					}
+				},
+				
+				confirm: 
+				{
+					validators: 
+					{
+						notEmpty: 
+						{
+							message: 'Your confirm password is required'
+						},
+						identical: 
+						{
+							field: 'userpassword',
+							message: 'Your password and its confirm password are not the same'
+						}
+					}
+				 },
+				 
+				gender: 
+				{
+					validators: 
+					{
+						notEmpty: 
+						{
+							message: 'Your gender is required'
+						}
+					}
+				},
+				
+				agreement: 
+				{
+					validators: 
+					{
+						notEmpty: 
+						{
+							message: 'You must agree with the terms and conditions first'
+						}
+					}
+				},
+			}         
+		});
+		
+	});
+			  
+	function saveInfo()
+		{
+				var form = document.getElementById("form");	  
+				var firstname = form.elements.namedItem('firstname').value;
+				var lastname = form.elements.namedItem('lastname').value;
+				<!-- var image = form.elements.namedItem('image').value; -->
+				var userpassword = form.elements.namedItem('userpassword').value;
+				var useremail = form.elements.namedItem('useremail').value;
+				var gender = form.elements.namedItem('gender').value;
+				var dob = form.elements.namedItem('dob').value;
+				var nationality = form.elements.namedItem('nationality').value;
+			   
+				var saveData = { 'firstname': firstname, 'lastname': lastname, 'userpassword': userpassword, 'useremail': useremail, 'gender': gender, 'dob':dob, 'nationality':nationality };
+
+				// Put the object into storage
+				localStorage.setItem('saveData', JSON.stringify(saveData));
+			}
+	
+	/*
+	// Profile image js
+	function handleFileSelect(evt) {
+    var files = evt.target.files; // FileList object
+
+    // Loop through the FileList and render image files as thumbnails.
+    for (var i = 0, f; f = files[i]; i++) {
+
+      // Only process image files.
+      if (!f.type.match('image.*')) {
+        continue;
+      }
+
+      var reader = new FileReader();
+
+      // Closure to capture the file information.
+      reader.onload = (function(theFile) {
+        return function(e) {
+          // Render thumbnail.
+          var span = document.createElement('span');
+          span.innerHTML = ['<img class="thumb" src="', e.target.result,
+                            '" title="', escape(theFile.name), '"/>'].join('');
+            
+          document.getElementById('list').insertBefore(span, null);
+          localStorage.setItem('img', e.target.result);
+        };
+      })(f);
+
+      // Read in the image file as a data URL.
+      reader.readAsDataURL(f);
+    }
+  }
+
+  document.getElementById('files').addEventListener('change', handleFileSelect, false);
+
+
+  if(localStorage.img) { 
+
+         var span = document.createElement('span');
+          span.innerHTML += ['<img class="thumb" src="', localStorage.img,
+                            '" title="test"/>'].join('');
+
+          document.getElementById('list').insertBefore(span, null);
+    
+    }
+	
+	*/
+	</script>
+</html>

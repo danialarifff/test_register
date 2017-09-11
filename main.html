@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<!-- Website CSS style -->
+		<!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+		<!-- Website Font style -->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<!-- Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+		
+		<title>Main Page</title>
+	</head>
+	<body>
+		<div class="container">
+		
+			<div class="col-sm-offset-11 col-sm-1">
+				<button type="button" class="btn btn-default btn-sm" onclick="logOut()">
+				  <span class="glyphicon glyphicon-log-out"></span> Log out
+				</button>
+			</div>
+			
+			<div class="row main">
+				<div class="main-login main-center">
+				<h5>Your Personal Information</h5>
+					<form id ="form" class="" method="post" action="#">
+						
+					<table class="table table-bordered">
+						<thead>
+						  <tr>
+							<th>First name</th>
+							<td><p id="firstname"></p></td>
+						  </tr>
+						  <tr>
+							<th>Last name</th>
+							<td><p id="lastname"></p></td>
+						  </tr>
+						  <tr>
+							<th>Password</th>
+							<td><p id="userpassword"></p></td>
+						  </tr>
+						  <tr>
+							<th>Email</th>
+							<td><p id="useremail"></p></td>
+						  </tr>
+						  <tr>
+							<th>Gender</th>
+							<td><p id="gender"></p></td>
+						  </tr>
+						  <tr>
+							<th>Date of birth</th>
+							<td><p id="dob"></p></td>
+						  </tr>
+						  <tr>
+							<th>Nationality</th>
+							<td><p id="nationality"></p></td>
+						  </tr>
+						</thead>
+					  </table>	
+						
+					</form>
+				</div>
+			</div>
+		</div>
+
+		 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+	</body>
+	
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
+	<script type="text/javascript">
+			  
+	// Retrieve the object from storage
+	var retrievedObject = localStorage.getItem('saveData');
+
+	var data = JSON.parse(retrievedObject);
+	document.getElementById('firstname').innerHTML += data['firstname'];
+	document.getElementById('lastname').innerHTML += data['lastname'];
+	document.getElementById('userpassword').innerHTML += data['userpassword'];
+	document.getElementById('useremail').innerHTML += data['useremail'];
+	document.getElementById('gender').innerHTML += data['gender'];
+	document.getElementById('dob').innerHTML+=data['dob'];
+	document.getElementById('nationality').innerHTML += data['nationality'];
+
+	console.log('retrievedObject: ', JSON.parse(retrievedObject));
+
+	function logOut()
+	{		
+	window.location="register.html"	
+	}
+			
+	</script>
+</html>
